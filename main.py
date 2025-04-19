@@ -3,7 +3,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import requests
 import os
 from notion_sync import add_to_notion
-from phrases import get_random_phrase  # функция возвращает одну случайную фразу
+from phrases import get_random_phrase  # импортируем функцию
 
 app = Flask(__name__)
 
@@ -27,7 +27,7 @@ def telegram_webhook():
 def send_random_message():
     if not CHAT_ID or not BOT_TOKEN:
         return
-    text = get_random_phrase()
+    text = get_random_phrase()  # корректный вызов
     requests.post(
         f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
         json={"chat_id": CHAT_ID, "text": text}
@@ -35,7 +35,7 @@ def send_random_message():
 
 # Планировщик сообщений раз в час с 6:30 до 23:00
 scheduler = BackgroundScheduler(timezone="Europe/Moscow")
-for hour in range(6, 24):  # до 23:00 включительно
+for hour in range(6, 24):
     scheduler.add_job(send_random_message, "cron", hour=hour, minute=30)
 
 scheduler.start()
