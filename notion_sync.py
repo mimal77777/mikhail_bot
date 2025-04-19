@@ -2,7 +2,7 @@ import requests
 import os
 
 NOTION_API_KEY = os.environ.get("NOTION_TOKEN")
-DATABASE_ID = os.environ.get("PAGE_ID")
+DATABASE_ID = os.environ.get("NOTION_PAGE_ID")
 
 def add_to_notion(message):
     url = "https://api.notion.com/v1/pages"
