@@ -9,7 +9,7 @@ BOT_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 WEBHOOK_PATH = f"/{BOT_TOKEN}"
 
 
-@app.route(WEBHOOK_PATH, methods=["POST"])
+@app.route("/7829368082:AAEI--GfMALMubHeC4oBZhs9FBXQiTJ4v5I", methods=["POST"])
 def telegram_webhook():
     data = request.get_json()
 
