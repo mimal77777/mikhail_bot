@@ -1,7 +1,7 @@
 from flask import Flask, request
 import requests
 import os
-from notion_sync import add_to_notation
+from notion_sync import add_to_notion
 
 app = Flask(__name__)
 
